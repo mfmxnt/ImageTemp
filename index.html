@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padding & Margin · Organized</title>
+
+  <!-- ============================================= -->
+  <!-- OPTION 1: Internal CSS (Great for single-file experiments) -->
+  <!-- ============================================= -->
+  <style>
+    /* --- Global Reset & Body --- */
+    * {
+      box-sizing: border-box; /* Makes padding not add to total width */
+    }
+
+    body {
+      background: #f5f7fa;
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    /* --- Main Container --- */
+    .sandbox {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      padding: 2.5rem;
+    }
+
+    /* --- Headings --- */
+    .page-title {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+      font-size: 2.2rem;
+    }
+
+    .subtitle {
+      color: #4a5568;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      border-left: 4px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    /* --- Experiment Cards --- */
+    .card {
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px dashed #818cf8;
+    }
+
+    .card-blue {
+      background: #eef2ff;
+    }
+
+    .card-gray {
+      background: #f1f5f9;
+      border: none;
+    }
+
+    .card-green {
+      background: #ecfdf5;
+      border: 1px dashed #10b981;
+    }
+
+    .card-red {
+      background: #fef2f2;
+      border: 1px dashed #ef4444;
+    }
+
+    /* --- The Actual Experiment Boxes --- */
+    .box-demo {
+      background: #fef9c3;
+      border: 2px solid #eab308;
+      border-radius: 16px;
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding: 2rem 2.5rem;
+      margin: 1.5rem 0.5rem;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+      
+      transition: all 0.15s;
+    }
+
+    .box-demo p {
+      margin: 0;
+      font-weight: 500;
+      color: #78350f;
+    }
+
+    .box-demo .hint {
+      margin: 0.5rem 0 0 0;
+      color: #92400e;
+      font-size: 0.95rem;
+    }
+
+    /* --- Side-by-Side Boxes --- */
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .box-padding {
+      flex: 1 1 200px;
+      background: #e0f2fe;
+      border-radius: 18px;
+      border: 2px solid #0284c7;
+      text-align: center;
+      box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding: 3rem 1.5rem;
+      margin: 0.25rem;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+    }
+
+    .box-margin {
+      flex: 1 1 200px;
+      background: #fce7f3;
+      border-radius: 18px;
+      border: 2px solid #db2777;
+      text-align: center;
+      box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding: 0.5rem 0.8rem;
+      margin: 2.5rem 1rem;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+    }
+
+    /* --- Directional Box --- */
+    .box-directional {
+      background: #d1fae5;
+      border-radius: 18px;
+      border: 2px solid #10b981;
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding-top: 0.5rem;
+      padding-right: 3rem;
+      padding-bottom: 2rem;
+      padding-left: 0.8rem;
+      
+      margin: 1rem 2rem 0.5rem 3rem;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+    }
+
+    /* --- Zero Spacing Boxes --- */
+    .box-zero {
+      background: #fecaca;
+      border: 2px solid #dc2626;
+      border-radius: 12px;
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding: 0;
+      margin: 0;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+    }
+
+    .box-zero p {
+      margin: 0;
+      padding: 0.2rem 0.4rem;
+      background: #fca5a5;
+      color: #7f1d1d;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .box-zero-bottom {
+      background: #fecaca;
+      border: 2px solid #b91c1c;
+      border-radius: 0 0 12px 12px;
+      border-top: none;
+      
+      /* ⬇️⬇️⬇️ EXPERIMENT HERE ⬇️⬇️⬇️ */
+      padding: 0;
+      margin: 0;
+      /* ⬆️⬆️⬆️ EXPERIMENT HERE ⬆️⬆️⬆️ */
+    }
+
+    /* --- Utility Tags --- */
+    .tag {
+      background: #dbeafe;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      color: #1e3a5f;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    .badge {
+      background: #e2e8f0;
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 2px dotted #cbd5e1;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .code-inline {
+      background: #edf2f7;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+
+  <!-- ============================================= -->
+  <!-- OPTION 2: External CSS (Uncomment this and comment out the <style> above to use a separate file) -->
+  <!-- ============================================= -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<body>
+
+  <div class="sandbox">
+    <h1 class="page-title">🧪 padding &amp; margin · organized</h1>
+    <p class="subtitle">
+      All styles are in the <code class="code-inline">&lt;style&gt;</code> block above.
+      Scroll up to find the <strong>EXPERIMENT HERE</strong> comments and change the values!
+    </p>
+
+    <!-- Card 1 -->
+    <div class="card card-blue">
+      <h3>❶ Single Box</h3>
+      <div class="box-demo">
+        <p>⚡ padding: 2rem 2.5rem &nbsp;|&nbsp; margin: 1.5rem 0.5rem</p>
+        <p class="hint">(try <strong>padding</strong> and <strong>margin</strong> with 1, 2, 3 or 4 values)</p>
+      </div>
+      <span class="tag">🖌️ Edit in .box-demo</span>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card card-gray">
+      <h3>❷ Side‑by‑side</h3>
+      <div class="flex-row">
+        <div class="box-padding">
+          <span style="background:#bae6fd; border-radius:40px; padding:0.2rem 0.8rem; font-weight:500; color:#0c4a6e; font-size:0.8rem;">PADDING</span>
+          <p style="margin:0.75rem 0 0 0; font-weight:500;">3rem 1.5rem</p>
+          <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#075985;">margin: 0.25rem</p>
+        </div>
+        <div class="box-margin">
+          <span style="background:#fbcfe8; border-radius:40px; padding:0.2rem 0.8rem; font-weight:500; color:#831843; font-size:0.8rem;">MARGIN</span>
+          <p style="margin:0.75rem 0 0 0; font-weight:500;">0.5rem 0.8rem</p>
+          <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#9d174d;">margin: 2.5rem 1rem</p>
+        </div>
+      </div>
+      <span class="tag">⚡ Edit .box-padding / .box-margin</span>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card card-green">
+      <h3>❸ Directional</h3>
+      <div class="box-directional">
+        <p style="margin:0; font-weight:500; color:#064e3b;">🧊 directional padding &amp; margin</p>
+        <p style="margin:0.25rem 0 0 0; color:#065f46; font-size:0.9rem;">
+          <code>padding-top: 0.5rem;</code> · <code>padding-right: 3rem;</code> · <code>padding-bottom: 2rem;</code> · <code>padding-left: 0.8rem;</code>
+        </p>
+        <p style="margin:0.25rem 0 0 0; color:#065f46; font-size:0.9rem;">
+          <code>margin: 1rem 2rem 0.5rem 3rem;</code>
+        </p>
+      </div>
+      <span class="tag">⬆️⬇️ Edit .box-directional</span>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card card-red">
+      <h3>❹ Zero Spacing</h3>
+      <div class="box-zero">
+        <p>⚡ no padding, no margin – boxes touch</p>
+      </div>
+      <div class="box-zero-bottom">
+        <p>second box – margin:0 &amp; padding:0</p>
+      </div>
+      <span class="tag">✏️ Edit .box-zero / .box-zero-bottom</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="badge">🔄 Edit values in the &lt;style&gt; block → refresh</span>
+      <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">
+        padding = space <strong>inside</strong> · margin = space <strong>outside</strong>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
